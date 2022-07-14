@@ -6,9 +6,13 @@ module MyEnumerable
     false
   end
   
-  # def initialize(*any)
-  #   @any = any
-  # end
+  def any?
+    return true unless block_given?
+
+    each { |item| return true if yield(item) }
+    false
+  end
+  
   
   # def initialize(*filter)
   #   @filter = filter
