@@ -14,8 +14,10 @@ module MyEnumerable
   end
   
   
-  # def initialize(*filter)
-  #   @filter = filter
-  # end
+  def filter
+    newArray = []
+    each { |item| newArray.push(item) if yield(item) }
+    newArray
+  end
 
 end
